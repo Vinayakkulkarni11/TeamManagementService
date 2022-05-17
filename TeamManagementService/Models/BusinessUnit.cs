@@ -18,9 +18,16 @@ namespace TeamManagementService.Models
         [Required]
         public bool Active { get; set; }
 
-        [Required]
-        [MaxLength(4)]
-        public string BU_Type { get; set; } = string.Empty;
+        [Required]      
+        [EnumDataType(typeof(BusinessUnitType))]
+        public BusinessUnitType BU_Type { get; set; }
 
+    }
+
+    public enum BusinessUnitType
+    {
+        UW,
+        UWS,
+        UWSS
     }
 }

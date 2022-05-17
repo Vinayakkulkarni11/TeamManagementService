@@ -1,6 +1,7 @@
 ﻿global using TeamManagementService.Models;
 using Microsoft.EntityFrameworkCore;
-
+using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
+using TeamManagementService.Extensions;
 
 namespace TeamManagementService.Data
 {
@@ -9,7 +10,6 @@ namespace TeamManagementService.Data
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
         }
-
         public DbSet<BusinessUnit> BusinessUnits { get; set; }
 
         public DbSet<BusinessUnitCategory> BusinessUnitCategories { get; set; }
@@ -39,9 +39,9 @@ namespace TeamManagementService.Data
                     .HasForeignKey(c => c.BU_Id);
             });
 
+            builder.SetEnumStringConverter();
 
             base.OnModelCreating(builder);
-
         }
-    }
+    }    
 }

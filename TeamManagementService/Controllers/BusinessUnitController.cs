@@ -17,7 +17,7 @@ namespace TeamManagementService.Controllers
         }
 
         [HttpPost("BusinessUnit")]        
-        public async Task<ActionResult<ServiceResponse<BusinessUnit>>> AddBusinessUnit([FromBody]BusinessUnit businessUnit)
+        public async Task<ActionResult<ServiceResponse<BusinessUnit>>> AddBusinessUnit(BusinessUnit businessUnit)
         {
             var response =  await _businessUnitService.AddBusinessUnitAsync(businessUnit);
             return Ok(response);            

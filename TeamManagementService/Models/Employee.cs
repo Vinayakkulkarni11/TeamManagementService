@@ -19,12 +19,18 @@
         public string LastName { get; set; } = string.Empty;
 
         [Required]
-        [MaxLength(3)]
-        public string Status { get; set; }
+        [EnumDataType(typeof(EmployeeStatus))]
+        public EmployeeStatus Status { get; set; }
 
         [Required]
         [MaxLength(100)]
         public string EmailAddress { get; set; }
 
+    }
+
+    public enum EmployeeStatus
+    {
+        VAL,
+        HIS
     }
 }

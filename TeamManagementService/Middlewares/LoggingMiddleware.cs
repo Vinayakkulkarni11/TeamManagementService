@@ -42,21 +42,18 @@ namespace TeamManagementService.Middlewares
             request.EnableBuffering();
 
             string bodyAsText;
-            //var body = request.Body;
+            var body = request.Body;
 
             using (var reader = new StreamReader(
-                       request.Body,
-                        encoding: Encoding.UTF8,
-                        detectEncodingFromByteOrderMarks: false,
-                        //bufferSize: bufferSize,
-                        leaveOpen: true))
-                            {
-                              bodyAsText = await reader.ReadToEndAsync();
-                                
-
-                                // Reset the request body stream position so the next middleware can read it
-                                request.Body.Position = 0;
-                            }
+                request.Body,
+                encoding: Encoding.UTF8,
+                detectEncodingFromByteOrderMarks: false,
+                leaveOpen: true))
+                {
+                bodyAsText = await reader.ReadToEndAsync();
+                request.Body = body;  
+                request.Body.Position = 0;
+                }
 
             return $"{request.Scheme} {request.Host}{request.Path} {request.QueryString} {bodyAsText}";
         }

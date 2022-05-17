@@ -22,7 +22,7 @@ namespace TeamManagement.Tests.MockData
                     BU_Id =1,
                     BU_Description = "Rocks BU",
                     BU_Name = "Rocks",
-                    BU_Type = "UWS"
+                    BU_Type = BusinessUnitType.UW
 
                 },
                 new BusinessUnit()
@@ -30,7 +30,7 @@ namespace TeamManagement.Tests.MockData
                     BU_Id =2,
                     BU_Description = "Sales BU",
                     BU_Name = "Sales",
-                    BU_Type = "UWSS"
+                    BU_Type = BusinessUnitType.UWS
 
                 }
             };
@@ -43,7 +43,7 @@ namespace TeamManagement.Tests.MockData
             {
                 BU_Name = "Test BU" + Guid.NewGuid(),
                 BU_Description = "Unit testing BU",
-                BU_Type = "UWS"
+                BU_Type = BusinessUnitType.UWS
             };
         }
     }
