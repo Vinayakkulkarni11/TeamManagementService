@@ -1,29 +1,14 @@
-global using TeamManagementService.Data;
-global using Microsoft.EntityFrameworkCore;
-global using TeamManagementService.Services.EmployeeService;
-global using TeamManagementService.Services.BusinessUnitService;
-using TeamManagementService.Middlewares;
-using System.Text.Json.Serialization;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-
-builder.Services.AddControllers().AddJsonOptions(opts =>
-{
-    var enumConverter = new JsonStringEnumConverter();
-    opts.JsonSerializerOptions.Converters.Add(enumConverter);
-});
-
-builder.Services.AddDbContext<DataContext>(options =>
-                options.UseSqlServer(builder.Configuration.GetConnectionString("Database")));
-
+//Add custom services in below function
+builder.AddCustomServices(); ;
 
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-builder.Services.AddTransient<IEmployee, EmployeeService>();
-builder.Services.AddTransient<IBusinessUnit, BusinessUnitService>();
 
 var app = builder.Build();
 
@@ -39,6 +24,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
-app.UseMiddleware<ExceptionMiddleware>();
-app.UseMiddleware<LoggingMiddleware>(); 
+
+//Add custom middlewares in below function
+app.UseCustomMiddlewares();
+
 app.Run();

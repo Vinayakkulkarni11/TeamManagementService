@@ -1,6 +1,4 @@
-﻿global using Microsoft.AspNetCore.Mvc;
-global using TeamManagementService.Models;
-
+﻿
 namespace TeamManagementService.Services.BusinessUnitService
 {
     public interface IBusinessUnit

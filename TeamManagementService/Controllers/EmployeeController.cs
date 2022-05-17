@@ -1,7 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using TeamManagementService.Services.EmployeeService;
-
+﻿
 namespace TeamManagementService.Controllers
 {
     [Route("api/[controller]")]

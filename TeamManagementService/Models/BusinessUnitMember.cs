@@ -1,5 +1,4 @@
-﻿global using System.ComponentModel.DataAnnotations.Schema;
-
+﻿
 namespace TeamManagementService.Models
 {
     public class BusinessUnitMember

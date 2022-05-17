@@ -1,8 +1,4 @@
-﻿global using TeamManagementService.Models;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using TeamManagementService.Extensions;
-
+﻿
 namespace TeamManagementService.Data
 {
     public class DataContext : DbContext

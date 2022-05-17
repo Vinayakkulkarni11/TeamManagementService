@@ -1,5 +1,4 @@
-﻿global using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace TeamManagementService.Models
 {
     public class BusinessUnit
